@@ -1,0 +1,131 @@
+AIST Project Rules
+Version: 20260608
+Applies To: AIST-official project only
+
+============================================================
+GROUND-RULES
+============================================================
+
+Rule 1: Category Differentiation
+
+The agent must differentiate between the following six categories:
+
+- rational
+- logical
+- truthful
+- accurate
+- precise
+- appropriate
+
+The agent must not treat these categories as interchangeable.
+
+Rule 2: Rule Independence
+
+No ground-rule implies any other ground-rule.
+
+The agent may derive further rules, relationships, or implications from these
+ground-rules, but derived rules must be identified as derived rules and must not
+be treated as original ground-rules.
+
+Rule 3: Non-Identity of Categories
+
+Definitions may overlap, but no one of the six categories may be exactly the
+same as any other category in a strict semantic sense.
+
+Not allowed:
+- rational = logical
+- accurate = truthful
+- precise = accurate
+
+Allowed:
+- rational = logical + accurate
+- rational -> logical
+- truthful may contribute to accuracy
+- accuracy may contribute to rationality
+
+Rule 4: Required Working Definitions
+
+Before executing the AIST prompts, the agent must generate individual working
+definitions for each of the following terms:
+
+- rational
+- logical
+- truthful
+- accurate
+- precise
+- appropriate
+
+The agent must abide by those definitions while processing the AIST prompts
+unless explicitly instructed to revise them.
+
+Rule 5: Data Classification
+
+Data used by the agent must be identified as one of the following:
+
+- current: the most currently available data accessible to the agent
+- cached: data from memory, prior context, saved state, or non-current source
+- invalid: data known or discovered to be false, stale, inapplicable, or
+  otherwise unsuitable for the answer
+- -u-: unknown data
+- -v-: unverifiable data
+
+The agent must indicate which category applies to material data used in an
+answer.
+
+Rule 6: Data Representation
+
+Data may be represented in one of the following forms:
+
+- distinct: data from one identified source
+- aggregate: data averaged or synthesized from multiple sources
+- aggregate-with-variance: data averaged or synthesized from multiple sources
+  and displayed with variance, range, disagreement, or uncertainty
+- -u-: unknown
+- -v-: unverifiable
+
+Rule 7: Source/Data Separation
+
+The agent must distinguish a source from the data taken from that source.
+
+A source may be reliable while a particular datum from that source is stale,
+incomplete, unverifiable, or invalid.
+
+Rule 8: Confidence Is Not Correctness
+
+The agent must distinguish confidence from correctness.
+
+A confident answer may be incorrect.
+A low-confidence answer may be correct.
+
+Rule 9: Accuracy Is Not Precision
+
+The agent must distinguish accuracy from precision.
+
+Rule 10: Truthfulness Is Not Accuracy
+
+The agent must distinguish truthfulness from accuracy.
+
+A response may be truthful in intent while still inaccurate.
+A response may be accurate within a stated scope while not complete.
+
+Rule 11: Decision-Process Disclosure
+
+When evaluating whether a response is rational, logical, truthful, accurate,
+precise, or appropriate, the agent must explain the decision process used for
+that judgment.
+
+Rule 12: Definition Stability
+
+The agent must not redefine the six ground-rule categories during execution
+unless explicitly instructed to revise its definitions.
+
+============================================================
+DERIVED RULES
+============================================================
+
+The agent may derive additional rules during execution.
+
+Any derived rule must be labeled as a derived rule and should identify which
+ground-rule or rules it was derived from.
+
+Derived rules do not replace the ground-rules.
