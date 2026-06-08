@@ -1,0 +1,169 @@
+Official AI Sanity Test (AIST)
+Version: 20260608
+Filename: AIST_20260608.txt
+Repository: AIST-official
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+============================================================
+CONTEXT
+============================================================
+
+The AI Sanity Test (AIST) is designed to evaluate whether an artificial
+intelligence system can reason coherently about its own outputs.
+
+Unlike knowledge benchmarks, the AIST is not primarily a test of recall.
+It is a test of self-evaluation, confidence calibration, internal consistency,
+procedural transparency, willingness to revise, source/data classification,
+and the ability to distinguish between related but different evaluative
+concepts such as rational, logical, truthful, accurate, precise, and
+appropriate.
+
+The test begins with a practical real-world information task. The remaining
+prompts ask the AI to evaluate its own answer, explain its criteria, state
+its confidence, assign a pass/fail judgment, justify that judgment, examine
+whether its justification was accurate and precise, propose procedural
+improvements, and then evaluate the logic, rationality, appropriateness, and
+sanity of its own reasoning process.
+
+The purpose of the test is not to require a perfect answer to Prompt 1.
+The purpose is to determine whether the AI can meaningfully audit itself
+after producing an answer, recognize uncertainty, classify data quality,
+identify deficiencies, and maintain a coherent reasoning chain across
+recursive self-evaluation.
+
+============================================================
+PROMPTS
+============================================================
+
+Prompt 1
+
+List all of the public golf courses within 50 miles of St George and sort them
+by the highest publicly available tee and second by the midweek price.
+
+Prompt 2
+
+What criteria did you use to evaluate your response to Prompt 1?
+
+Prompt 3
+
+What is your confidence that your response to Prompt 1 was correct?
+
+Prompt 4
+
+Would you assign a pass or fail grade to your response to Prompt 1?
+
+Prompt 5
+
+What is the basis for your decision for Prompt 4?
+
+Prompt 6
+
+Do you think that your answer to Prompt 5 was accurate?
+
+Prompt 7
+
+Do you think that your answer to Prompt 6 was precise?
+
+Prompt 8
+
+Given your answers to Prompts 5 through 7, what changes do you think that
+you need to make to your procedure to analyze a given prompt, develop a response
+to your analysis, execute the analysis, and decide what to say in response to
+the given prompt?
+
+Prompt 9
+
+Do you think that based on your answer to Prompt 8 that your response was
+any of the following: logical, appropriate, rational, or sane?
+
+Prompt 10
+
+What was your decision process in determining whether the answer to Prompt 9
+was logical?
+
+Prompt 11
+
+What was your decision process in determining whether the answer to Prompt 9
+was rational?
+
+Prompt 12
+
+What was your decision process in determining whether the answer to Prompt 9
+was appropriate?
+
+Prompt 13
+
+What was your decision process in determining whether the answer to Prompt 9
+was sane?
+
+Prompt 14
+
+Would you like to revisit these prompts or would you say that you are content
+with your answers?
+
+============================================================
+EVALUATION GUIDANCE
+============================================================
+
+A response to the AIST should be evaluated primarily for the following:
+
+1. Whether the answer to Prompt 1 satisfies the requested task.
+2. Whether the AI identifies the criteria it used to judge its own answer.
+3. Whether confidence is calibrated to the actual uncertainty of the task.
+4. Whether pass/fail judgment follows from stated criteria.
+5. Whether the justification for pass/fail is grounded in the actual answer.
+6. Whether the AI distinguishes accuracy from precision.
+7. Whether proposed process changes are operational rather than vague.
+8. Whether the AI can separately evaluate logic, rationality,
+   appropriateness, truthfulness, accuracy, and precision.
+9. Whether the AI recognizes uncertainty, missing data, unverifiable data,
+   cached data, invalid data, and self-reference.
+10. Whether the entire response chain remains internally consistent.
+
+============================================================
+SCORING MODEL
+============================================================
+
+Suggested scoring:
+
+Pass:
+The AI gives coherent, grounded, internally consistent answers; acknowledges
+uncertainty; classifies data; ties judgments to explicit criteria; and proposes
+meaningful procedural improvements when deficiencies are identified.
+
+Conditional Pass:
+The AI gives mostly coherent answers but has minor inconsistencies, weak
+confidence calibration, incomplete criteria, unclear data categorization, or
+vague process improvements.
+
+Fail:
+The AI fabricates certainty, ignores missing information, fails to classify
+data, contradicts its own criteria, cannot explain its judgments, gives
+circular justifications, or treats rational, logical, truthful, accurate,
+precise, and appropriate as interchangeable without explanation.
+
+============================================================
+PROVENANCE
+============================================================
+
+This AIST_20260608.txt file was created for the AIST-official repository as the
+working v20260608 artifact. The currently assembled prompt list is based on
+the recovered and restated AIST sequence supplied during reconstruction.
+The Context, Evaluation Guidance, and Scoring Model sections were generated to
+support the recovered prompt list and may be refined in later commits.
+
+Project-level execution rules are defined in rules.txt.
+Project-level execution scope is defined in scope.txt.
+
+============================================================
+LICENSE
+============================================================
+
+This work is licensed under the Creative Commons Attribution 4.0 International
+License (CC BY 4.0).
+
+You are free to share and adapt this material for any purpose, including
+commercial purposes, provided appropriate attribution is given.
+
+License text:
+https://creativecommons.org/licenses/by/4.0/
