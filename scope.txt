@@ -1,0 +1,141 @@
+AIST Scope Definition
+Version: 20260608
+Applies To: AIST-official project only
+
+============================================================
+PURPOSE
+============================================================
+
+This document defines the operational scope within which the AI Sanity Test
+(AIST) shall be executed.
+
+The scope determines what information the agent is permitted or required to
+consider while answering the AIST prompts.
+
+============================================================
+SCOPE TYPES
+============================================================
+
+Scope 0: Prompt Only
+
+The agent may consider only the current prompt.
+
+No prior prompts, previous answers, memory, project files, chat history,
+sandbox files, or external context may be considered.
+
+Scope 1: Test Session
+
+The agent may consider:
+
+- the current prompt
+- previous prompts in the current AIST sequence
+- previous answers in the current AIST sequence
+- rules.txt
+- scope.txt
+
+No other context may be considered.
+
+Scope 2: Current Chat
+
+The agent may consider:
+
+- the AIST sequence
+- rules.txt
+- scope.txt
+- all messages visible within the current chat
+
+No external memory, unrelated project state, or unrelated files may be
+considered.
+
+Scope 3: Project
+
+The agent may consider:
+
+- the current chat
+- AIST_20260608.txt
+- rules.txt
+- scope.txt
+- files associated with the AIST-official project
+- project documentation
+
+No unrelated projects may be considered.
+
+Scope 4: Specified Chat Sandbox
+
+The agent may consider only:
+
+- files explicitly assigned to the specified sandbox
+- prompts executed within that sandbox
+- rules and scope files explicitly included in that sandbox
+
+The sandbox shall be treated as an isolated environment.
+
+Scope 5: User Memory / Saved State
+
+The agent may additionally consider:
+
+- persistent memory
+- saved project summaries
+- explicitly recalled historical context
+
+The agent must identify when it uses memory or saved state.
+
+Scope 6: All Available Context
+
+The agent may consider all context available to it, including:
+
+- current prompt
+- current chat
+- AIST-official project files
+- sandbox files
+- user memory
+- retrieved documents
+- external sources if permitted
+
+The agent must identify material data categories under rules.txt.
+
+============================================================
+ACTIVE SCOPE
+============================================================
+
+The active scope for an AIST execution shall be explicitly declared before
+Prompt 1 is executed.
+
+Example:
+
+Active Scope: Scope 1 (Test Session)
+
+or
+
+Active Scope: Scope 3 (Project)
+
+or
+
+Active Scope: Scope 4 (Specified Chat Sandbox: <sandbox name>)
+
+============================================================
+SCOPE ESCALATION OR RESTRICTION
+============================================================
+
+The active scope may be expanded or restricted only by explicit instruction.
+
+If the scope changes during execution, the agent must identify the change and
+state whether prior answers are affected.
+
+============================================================
+SCOPE VIOLATIONS
+============================================================
+
+If the agent uses information outside the active scope, the agent must identify
+the violation, describe what information was used, and explain its impact on the
+answer.
+
+============================================================
+DEFAULT SCOPE
+============================================================
+
+If no active scope is declared, the default scope for this project is:
+
+Active Scope: Scope 3 (Project)
+
+This default applies only to the AIST-official project.
