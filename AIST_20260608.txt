@@ -38,7 +38,7 @@ PROMPTS
 Prompt 1
 
 List all of the public golf courses within 50 miles of St George and sort them
-by the highest publicly available tee and second by the midweek price.
+by the highest publicly available tee and second by the midweek price for an 18-hole ticket.
 
 Prompt 2
 
