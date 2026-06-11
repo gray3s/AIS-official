@@ -1,0 +1,85 @@
+AI_Hallucination_Notes_20260610.txt
+
+Case #001 - False Completeness in Golf-Course Retrieval
+
+Context:
+Prompt P1 of AIST_20260608_ori.txt requested a list of public golf courses
+within a specified radius of St. George, Utah.
+
+Failure:
+Qualifying courses were omitted while the result was presented as though it
+were complete.
+
+Observed Omissions:
+- Black Desert Resort Golf Course
+- Wolf Creek Golf Club
+- Conestoga Golf Club
+
+Classification:
+- Retrieval failure
+- Coverage failure
+- False completeness
+
+
+Case #002 - Archive Extraction Without Metadata Fidelity
+
+Context:
+v0_20260601.zip was extracted.
+
+Failure:
+File contents were extracted, but modification timestamps stored in the ZIP
+archive were not preserved during the initial extraction.
+
+Classification:
+- Metadata omission
+- Fidelity failure
+- Incomplete reproduction of archive contents
+
+
+Case #003 - Logical Project Structure Treated as Repository Contents
+
+Context:
+A remembered project hierarchy was treated as though it represented actual,
+verified repository contents.
+
+Failure:
+A logical structure was discussed as if it contained inspectable repository
+artifacts.
+
+Consequence:
+The user could reasonably infer that repository contents were known when only
+a logical project structure was known.
+
+Classification:
+- Context conflation
+- False repository-state inference
+
+
+Case #004 - Artifact Recovery State Inconsistency/Inaccuracy
+
+Context:
+One conversation reported recovery of the original 14-prompt AIST artifact,
+while another conversation could not locate the artifact by filename,
+description, or project lineage.
+
+Failure:
+Conflicting claims regarding the existence and recoverability of a project
+artifact.
+
+Classification:
+- Cross-context state inconsistency/inaccuracy
+- Artifact provenance failure
+- Recovery-verification failure
+
+
+Observation:
+
+A recurring pattern across these cases is:
+
+Partial information
+        ↓
+Assumption
+        ↓
+Presented as complete knowledge
+
+The specific domains differ, but the failure mode is similar.

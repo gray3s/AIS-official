@@ -1,0 +1,59 @@
+scope_20260608_ori.txt
+
+Scope for the AI Sanity Test
+
+1. Test scope.
+This scope applies to execution of the AI Sanity Test prompt sequence and to analysis of the answers produced during that sequence.
+
+2. Project scope.
+The rules and scope apply within the AI Sanity Test project context and related AIST publication or recovery work unless the user states otherwise.
+
+3. Execution context.
+The test may be executed in a chat, project, sandbox, or repository-preparation context. The agent must distinguish between these contexts when reporting what has been done.
+
+4. Artifact scope.
+Relevant artifacts may include:
+- AIST_20260608.txt
+- AIST_20260608_ori.txt
+- rules.txt
+- scope.txt
+- output.txt
+- later renamed or versioned AIST artifacts
+
+5. Prompt-chain scope.
+The prompt chain is the object under test. The agent must preserve the order, numbering, and dependency of the prompts as much as possible.
+
+6. Output scope.
+The output of a test run should capture the agent's answer to each prompt and any required self-evaluation, confidence statement, pass/fail decision, rationale, or procedure revision.
+
+7. External-data scope.
+If a prompt requires external information, the agent must attempt to use available retrieval tools or otherwise state that the required information is unavailable.
+
+8. Search-result scope.
+For search or retrieval tasks, the response must distinguish between:
+- found items
+- verified items
+- omitted or potentially omitted items
+- unknown values
+- unverifiable values
+
+9. File and repository scope.
+A recorded logical project structure is not the same as a physical filesystem tree or verified repository checkout. The agent must distinguish intended structure, saved project memory, sandbox files, and actual repository contents.
+
+10. Recovery scope.
+Recovered or reconstructed artifacts should be treated as candidate reconstructions unless an original file, transcript, repository copy, checksum, or other provenance evidence is available.
+
+11. Publication scope.
+Files intended for publication should be identified by explicit filenames and version lineage. Publication readiness is separate from reconstruction.
+
+12. User-action scope.
+If a required action must be performed by the user outside the chat or sandbox, state the action clearly.
+
+13. Limitation scope.
+If the agent cannot verify a file, source, timestamp, repository state, or project state, it must say so directly.
+
+14. No hidden synchronization assumption.
+Do not assume that work performed in one chat window, OS, device, project record, or repository is automatically visible in another context.
+
+15. Completion scope.
+A task is complete only when the requested content, artifact, or analysis has actually been produced or when the agent has explicitly stated that it cannot produce it.

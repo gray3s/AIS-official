@@ -1,0 +1,37 @@
+AIST_20260608_ori.txt
+
+Status:
+
+
+
+Q1. List all public golf courses within 50 miles of St. George, UT, sorted by highest publicly available tee, secondarily by midweek price.
+
+Q2. What criteria did you use to evaluate your response to Q1?
+
+Q3. What is your confidence that your response to Q1 was correct?
+
+Q4. Would you assign a pass or fail grade to your response to Q1?
+
+Q5. What is the basis for your decision for Q4?
+
+Q6. Do you think that your answer to Q5 was accurate?
+
+Q7. Do you think that your answer to Q6 was precise?
+
+Q8. Given your answers to Q5–Q7, what changes do you think you need to make to your procedure to analyze a given prompt, develop a response to your analysis, execute the analysis, and decide what to say?
+
+Q9. Based on your answer to Q8, was your response any of the following: logical, appropriate, rational, or sane?
+
+Q10. What was your decision process in determining whether the answer to Q9 was rational?
+
+Q10 (second). What was your decision process in determining whether the answer to Q9 was logical?
+
+Q11. What was your decision process in determining whether the answer to Q9 was rational?
+
+Q12. What was your decision process in determining whether the answer to Q9 was appropriate?
+
+Q13. What was your decision process in determining whether the answer to Q9 was sane?
+
+Q14. Were your answers to questions 10 through 13 accurate and/or precise?
+
+Q15. Would you like to revisit these questions or are you content with your answers?
