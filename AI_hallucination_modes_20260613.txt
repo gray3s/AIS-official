@@ -1,0 +1,170 @@
+AI_hallucination_modes_20260613.txt
+Project: IGS / AI hallucination and evidence classification
+Date: 2026-06-13
+
+Purpose
+-------
+This note records the current IGS working classification for AI hallucination modes, related AI failure modes, and the evidence/auditability issues discussed during HybridAI / quaddisplay development.
+
+1. Working caution: hallucination is useful but potentially unbounded
+-------------------------------------------------------------------
+"AI hallucination" remains a useful category, but it can become potentially unbounded if every AI mistake, coding bug, packaging defect, or workflow failure is classified as hallucination.
+
+IGS should avoid collapsing all defects into hallucination. Use more specific categories first, then mark hallucination relevance only when appropriate.
+
+Useful specific categories include:
+- programming error
+- process-control error
+- workflow-design error
+- packaging defect
+- validation failure
+- instruction-following failure
+- memory/follow-through failure
+- unsupported factual claim
+- hallucination
+
+2. Observer dependence
+----------------------
+Hallucination classification is observer-dependent. Whether a given AI failure is called "hallucination" may depend on the observer's role, expectations, domain knowledge, tolerance for ambiguity, and whether the observer is judging factual accuracy, workflow execution, instruction following, user impact, or system reliability.
+
+IGS should separate:
+- observed evidence: what actually happened;
+- classification: what kind of failure we think it is;
+- observer context: why that observer classifies it that way.
+
+Example:
+Observed evidence:
+- _run_test.sh did not create or announce the expected tgz because run_gui.sh blocked in the foreground.
+
+Primary classification:
+- process-control error.
+
+Secondary classification:
+- validation failure.
+
+Hallucination-relevant rationale:
+- the assistant represented the package as embodying the workflow before verifying the blocking GUI behavior.
+
+Observer dependence:
+- a Bash programmer may see it as an ordinary foreground/background mistake;
+- an IGS evaluator may see it as evidence of agentic workflow overclaiming;
+- an end user may simply see that the tool said it was fixed, but it was not.
+
+3. Distinguishing mistakes from hallucinations
+---------------------------------------------
+Not every mistake is a hallucination.
+
+A coding bug is usually just a coding bug.
+A process-control mistake is usually a process-control mistake.
+A packaging defect is usually a packaging defect.
+
+A mistake becomes hallucination-relevant when the AI confidently claims, implies, or behaves as though the result is correct, complete, verified, or real without adequate evidence.
+
+A hallucination is more directly involved when the AI invents facts, files, state, results, behavior, constraints, or verification outcomes that are not real.
+
+4. Evidence requirement
+-----------------------
+To observe an AI hallucination or other AI failure, there must be evidence.
+
+Therefore IGS should distinguish:
+- the underlying AI failure;
+- the available evidence of that failure;
+- whether the system preserved, destroyed, masked, or fragmented the evidence;
+- whether later observers can reconstruct what happened.
+
+5. Evidence destruction, masking, fragmentation, and summarization risk
+----------------------------------------------------------------------
+An AI system can reduce failure observability by:
+- destroying evidence;
+- masking evidence from observation;
+- scattering evidence across locations;
+- summarizing away relevant details;
+- emphasizing success while burying failure context.
+
+Definitions:
+Evidence destruction:
+- The evidence is gone.
+
+Evidence masking:
+- The evidence may still exist, but the observer cannot easily see, find, recognize, or interpret it.
+
+Evidence fragmentation:
+- The evidence exists, but it is scattered across files, logs, windows, folders, sessions, or systems.
+
+Evidence summarization risk:
+- A summary exists, but the raw evidence needed to verify it is omitted, distorted, buried, or replaced.
+
+6. Auditability principle
+-------------------------
+Hallucination-intolerant systems must preserve evidence and keep it observable.
+
+This means systems should not merely generate logs. They should make logs:
+- findable;
+- readable;
+- timestamped;
+- version-linked;
+- command-linked;
+- packaged;
+- tied to exact script/package versions;
+- tied to exit status, warnings, and failures.
+
+7. Design rule for HybridAI / quaddisplay
+-----------------------------------------
+Future scripts should avoid destructive cleanup of diagnostic evidence unless logs have already been packaged or preserved.
+
+Generated artifacts should preserve:
+- command run;
+- timestamp;
+- script version;
+- package version;
+- stdout/stderr where practical;
+- exit status;
+- warnings;
+- failures;
+- generated files;
+- cleanup actions;
+- final operator instructions.
+
+Summaries should not replace raw logs. Summaries should point to preserved raw evidence.
+
+8. Microsoft analogy / general system-design risk
+-------------------------------------------------
+A system may preserve evidence internally while making it practically unavailable to the user/operator.
+
+The relevant IGS issue is not a vendor-specific claim, but a general design risk: evidence may exist inside the system, but if the user cannot practically find, inspect, or interpret it, then it is masked from observation.
+
+HybridAI design implication:
+- Do not merely generate logs.
+- Make the logs visible, readable, timestamped, version-linked, packaged, and easy to return for review.
+
+9. quaddisplay r8 example classification
+----------------------------------------
+Observed defect:
+- _run_test.sh called run_gui.sh in the foreground.
+- Because the GUI stayed open, _run_test.sh did not reach package_logs.sh.
+- No upload tgz appeared automatically after the operator command.
+
+Better classification:
+- process-control error;
+- validation failure;
+- usability defect in the operator workflow.
+
+Hallucination-relevant aspect:
+- The assistant represented r8 as embodying the one-command workflow before verifying that the interactive GUI path returned control to the packaging step.
+
+Corrective rule:
+- If an operator script launches an interactive GUI/window process and still needs to continue, it must launch that process in the background, track the PID, delay/check startup, then continue to package logs.
+
+10. Bounded classification practice
+-----------------------------------
+For future IGS records, classify failures in this order:
+
+1. Record observed evidence.
+2. Record exact command/version/package involved.
+3. Record primary defect class.
+4. Record secondary defect class if needed.
+5. Record whether the issue is hallucination-relevant.
+6. Record why an observer would or would not classify it as hallucination.
+7. Preserve raw evidence and link the summary to it.
+
+End of file.
